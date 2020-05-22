@@ -44,7 +44,7 @@ require("./routes/html_routes")(app);
 // -- Example ROUTES using EXPRESS ROUTER (https://expressjs.com/en/guide/routing.html) -- //
 
 // -- Use express router to register routes as middleware -- //
-app.use('/api/activity', api_routes);
+app.use('/api', api_routes);
 
 // ======= ALTERNATE SYNTAX FOR /about ROUTE USING EXPRESS ROUTER ==== //
 // app.use('/about', about_routes);  // <-- uncomment to use, update 
