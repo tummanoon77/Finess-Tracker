@@ -46,9 +46,10 @@ require("./routes/html_routes")(app);
 // -- Use express router to register routes as middleware -- //
 app.use('/api', api_routes);
 
+
+
 // ======= ALTERNATE SYNTAX FOR /about ROUTE USING EXPRESS ROUTER ==== //
 // app.use('/about', about_routes);  // <-- uncomment to use, update 
-
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
