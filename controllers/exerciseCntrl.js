@@ -18,7 +18,17 @@ const ExerciseCntrl = {
     // Exercise.find({}).then(data => {
     //   res.json(data)
     // });
-  }
+  },
+  create: function(req, res, next){
+    return new Promise(function(resolve, reject) {
+      db.Exercise.create(req.body).then(function(result) {
+        res.json({ result: "success", data: result})
+      });
+    });
+  },
+
+
+
 }
 
 // -- WE ARE EXPORTING (MAKING AVAILABLE TO OTHER FILES) THE CONTROLLER LOGIC (OBJECT & METHODS) -- //

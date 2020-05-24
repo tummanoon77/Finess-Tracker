@@ -13,13 +13,19 @@ const WorkoutCntrl = {
         res.json(results);
       })
     })
+  },
+  create: function(req, res, next){
+    return new Promise(function(resolve, reject) {
+      db.Workout.create(req.body).then(function(result) {
+        res.json({ result: "success", data: result})
+      });
+    });
+  },
 
-    // -- EXAMPLE SEQUELIZE DB QUERY -- //
-    // Exercise.find({}).then(data => {
-    //   res.json(data)
-    // });
-  }
 }
+
+
+
 
 // -- WE ARE EXPORTING (MAKING AVAILABLE TO OTHER FILES) THE CONTROLLER LOGIC (OBJECT & METHODS) -- //
 module.exports = WorkoutCntrl;

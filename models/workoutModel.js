@@ -9,7 +9,14 @@ module.exports = function (sequelize, DataTypes) {
         validate: {
           len: [1]
         }
+    },
+    Date: {
+        type: DataTypes.DATEONLY,
+        get: function() {
+            return moment.utc(this.getDataValue('CreateDate')).format('YYYY-MM-DD')
+        }
     }
+   
       });
       Workout.associate = function(models){
 
