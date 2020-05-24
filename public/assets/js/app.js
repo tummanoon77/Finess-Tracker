@@ -71,8 +71,12 @@ $(document).ready(function(){
   // STUDENTS: Add an activity to the selected workout, then save via API
   $("button#add-activity").on("click", function(e){
     e.preventDefault();
+    let id = $(this).data("id");
+    let newExercise = $(this).data("newExercise");
 
-  
+    
+    getExercises();
+    saveActivity(activity);
   });
 
 
@@ -98,7 +102,14 @@ $(document).ready(function(){
 
   // STUDENTS: Retrieve a JSON payload of all workouts done so far
   function getWorkouts(){
-    
+    $.ajax({
+      method: "GET",
+      url: "/api/workout"
+    }).then( resp => {
+      console.log(resp)
+      // populate the select area
+     
+    })
   }
 
   // Save the currently selected workout

@@ -12,8 +12,16 @@ const ExerciseCntrl = require('../controllers/exerciseCntrl');
 router.get("/", ExerciseCntrl.getAll);
 
 // -- ADD ADDITIONAL ROUTES -- //
+router.post("/workout", function(req, res, next) {
+  return UserCntrl.create(req, res, next);
+});
+
 router.post("/exercise", function(req, res, next) {
     return UserCntrl.create(req, res, next);
-  });
+});
+
+router.post("/activitie:id", function(req, res, next) {
+    return UserCntrl.create(req, res, next);
+}); 
 module.exports = router
 
