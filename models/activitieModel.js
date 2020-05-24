@@ -16,6 +16,9 @@ module.exports = function (sequelize, DataTypes) {
                 allowNull: false
             }
         });
+        Activitie.hasMany(models.Exercise, {
+            onDelete: "cascade"
+        });
       };
 
     return Activitie;

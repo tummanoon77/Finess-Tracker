@@ -14,10 +14,18 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        len: [1],
-      },
+        len: [1]
+      }
     }
   });
+  Exercise.associate = function(models){
+
+    Exercise.belongTo(models.Activitie,{
+        foreignKey:{
+            allowNull: false
+        }
+    });
+  };
   return Exercise;
 };
 
