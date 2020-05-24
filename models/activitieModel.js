@@ -10,8 +10,7 @@ module.exports = function (sequelize, DataTypes) {
         Distance: DataTypes.INTEGER
       })
       Activitie.associate = function(models){
-
-        Activitie.belongTo(models.Workout,{
+        Activitie.belongsTo(models.Workout,{
             foreignKey:{
                 allowNull: false
             }

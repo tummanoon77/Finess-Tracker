@@ -20,7 +20,7 @@ module.exports = function (sequelize, DataTypes) {
   });
   Exercise.associate = function(models){
 
-    Exercise.belongTo(models.Activitie,{
+    Exercise.belongsTo(models.Activitie,{
         foreignKey:{
             allowNull: false
         }
