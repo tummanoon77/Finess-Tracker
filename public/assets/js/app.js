@@ -45,11 +45,13 @@ $(document).ready(function(){
     if( params && params.selectLatest === true ){
       $("#activities-list li:last-child").addClass("selected");
     }
+    getExercises();
   }
 
 
+
   /** ********* Event handlers ********* */
-  getExercises();
+  
   //When someone clicks on a workout item, we'll populate the DOM with 
   // all activities for that workout. Note that because the workouts don't 
   // exist in the DOM when the page is loaded, we need to use the special
