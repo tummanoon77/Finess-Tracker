@@ -71,10 +71,6 @@ $(document).ready(function(){
   // STUDENTS: Add an activity to the selected workout, then save via API
   $("button#add-activity").on("click", function(e){
     e.preventDefault();
-    let id = $(this).data("id");
-    let newExercise = $(this).data("newExercise");
-
-    
     getExercises();
     saveActivity(activity);
   });
@@ -92,8 +88,8 @@ $(document).ready(function(){
       // populate the select area
       resp.forEach( exercise => {
         const opt = $("<option>");
-        opt.val(exercise.name);
-        opt.text(exercise.name);
+        opt.val(exercise.exercise_name);
+        opt.text(exercise.exercise_name);
         $("select#exercise").append(opt);
       });
 
