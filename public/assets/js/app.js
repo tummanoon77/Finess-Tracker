@@ -31,12 +31,25 @@ $(document).ready(function(){
 
   // STUDENTS: Populate activity data for the selected workout
   function populateActivities(){
-    
+    $("#activities-list").empty();
+    const ul = $("<ul>");
+    allActivities.forEach( (activity, idx) => {
+      console.log(activity);
+      const li = $("<li>");
+      li.addClass("activity-item");
+      li.attr("data-activity-id", activity.id);
+      li.attr("data-activity-idx", idx);
+      ul.append(li);
+    });
+    $("#activities-list").append(ul);
+    if( params && params.selectLatest === true ){
+      $("#activities-list li:last-child").addClass("selected");
+    }
   }
 
 
   /** ********* Event handlers ********* */
-  
+  getExercises();
   //When someone clicks on a workout item, we'll populate the DOM with 
   // all activities for that workout. Note that because the workouts don't 
   // exist in the DOM when the page is loaded, we need to use the special
@@ -71,7 +84,9 @@ $(document).ready(function(){
   // STUDENTS: Add an activity to the selected workout, then save via API
   $("button#add-activity").on("click", function(e){
     e.preventDefault();
+    let id = $("[name=id]").val().trim();
     getExercises();
+    
     saveActivity(activity);
   });
 
@@ -88,8 +103,8 @@ $(document).ready(function(){
       // populate the select area
       resp.forEach( exercise => {
         const opt = $("<option>");
-        opt.val(exercise.exercise_name);
-        opt.text(exercise.exercise_name);
+        opt.val(exercise.name);
+        opt.text(exercise.name);
         $("select#exercise").append(opt);
       });
 

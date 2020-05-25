@@ -20,7 +20,7 @@ router.post("/exercise", function(req, res, next) {
     return UserCntrl.create(req, res, next);
 });
 
-router.post("/activitie:id", function(req, res, next) {
+router.post("/activity:id", function(req, res, next) {
     return UserCntrl.create(req, res, next);
 }); 
 module.exports = router

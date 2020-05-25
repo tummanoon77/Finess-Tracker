@@ -20,7 +20,7 @@ module.exports = function (sequelize, DataTypes) {
       });
       Workout.associate = function(models){
 
-        Workout.hasMany(models.Activitie, {
+        Workout.hasMany(models.Activity, {
             onDelete: "cascade"
         
       });

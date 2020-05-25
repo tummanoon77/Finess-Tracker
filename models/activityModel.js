@@ -2,25 +2,25 @@
 
 // // -- DO WE WANT TO GIVE THEM AN EXAMPLE OR CREATE IT FROM SCRATCH ?? -- //
 module.exports = function (sequelize, DataTypes) {
-    var Activitie = sequelize.define("Activitie", {
+    var Activity = sequelize.define("Activity", {
         Weight: DataTypes.INTEGER,
         Sets: DataTypes.INTEGER,
         Reps: DataTypes.INTEGER,
         Duration: DataTypes.INTEGER,
         Distance: DataTypes.INTEGER
       })
-      Activitie.associate = function(models){
-        Activitie.belongsTo(models.Workout,{
+      Activity.associate = function(models){
+        Activity.belongsTo(models.Workout,{
             foreignKey:{
                 allowNull: false
             }
         });
-        Activitie.hasOne(models.Exercise, {
+        Activity.hasOne(models.Exercise, {
             onDelete: "cascade"
         });
       };
 
-    return Activitie;
+    return Activity;
   };
   
   
